@@ -1,5 +1,6 @@
 import { LocalStorage } from "@raycast/api";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { randomUUID } from "crypto";
 
 export type Todo = { id: string; title: string; createdAt: number; completedAt?: number };
 export type Scratchpad = { id: string; title: string; content: string; updatedAt: number };
@@ -44,7 +45,7 @@ export function useTodos() {
   return {
     todos,
     isLoading,
-    add: (title: string) => update((prev) => [{ id: crypto.randomUUID(), title, createdAt: Date.now() }, ...prev]),
+    add: (title: string) => update((prev) => [{ id: randomUUID(), title, createdAt: Date.now() }, ...prev]),
     rename: (id: string, title: string) => update((prev) => prev.map((t) => (t.id === id ? { ...t, title } : t))),
     complete: (id: string) => setCompleted(id, Date.now()),
     reopen: (id: string) => setCompleted(id, undefined),
@@ -61,7 +62,7 @@ export function useScratchpads() {
     pads,
     isLoading,
     create: async (title: string, content: string) => {
-      const pad = { id: crypto.randomUUID(), title, content, updatedAt: Date.now() };
+      const pad = { id: randomUUID(), title, content, updatedAt: Date.now() };
       await update((prev) => [...prev, pad]);
       return pad;
     },
