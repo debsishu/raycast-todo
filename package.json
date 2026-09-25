@@ -1,0 +1,36 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "raycast-todo",
+  "title": "Todos & Scratchpads",
+  "description": "A simple todo list with a day-wise completed log and markdown scratchpads.",
+  "icon": "icon.png",
+  "author": "debsishu",
+  "categories": ["Productivity"],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "todos",
+      "title": "Todos",
+      "subtitle": "Todos & Scratchpads",
+      "description": "Manage todos, view completed todos by day, and keep scratchpads.",
+      "mode": "view"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.104.25"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.2.0",
+    "@types/node": "22.19.17",
+    "@types/react": "19.0.10",
+    "eslint": "^9.39.0",
+    "prettier": "^3.6.0",
+    "typescript": "~5.9.0"
+  },
+  "scripts": {
+    "build": "ray build",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint"
+  }
+}
